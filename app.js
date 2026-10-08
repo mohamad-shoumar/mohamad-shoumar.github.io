@@ -4,26 +4,6 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var C = { up: "#2ee6a6", down: "#ff5c7a", gold: "#f5b942", blue: "#5aa9ff", text: "#8a97a6", line: "#1b222b" };
 
-  /* ---------------- ticker tape ---------------- */
-  var tapeItems = [
-    ["SHMR", "800+ concurrent jobs", "▲"],
-    ["PROD", "0 failures", "●"],
-    ["TEAM", "5 engineers led", "▲"],
-    ["AWS", "Lambda · SQS", "▲"],
-    ["PY", "Python · FastAPI · Django", "▲"],
-    ["PG", "PostgreSQL · idempotent writes", "▲"],
-    ["CERT", "Applied AI Engineering · Sep 2026", "NEW"],
-    ["CERT", "Zapier AI Builder Path", "▲"],
-    ["BUILD", "Bazel → Poetry migration", "▲"],
-    ["UI", "Next.js · TypeScript · Lightweight Charts", "▲"],
-    ["PROMO", "Full Stack → Backend → Team Lead", "▲▲"]
-  ];
-  var tape = document.getElementById("tape");
-  var html = tapeItems.map(function (t) {
-    return '<span class="tape__item"><b>' + t[0] + "</b>" + t[1] + "<i>" + t[2] + "</i></span>";
-  }).join("");
-  tape.innerHTML = html + html; // doubled for a seamless loop
-
   /* ---------------- milestones ---------------- */
   var milestones = [
     { m: "2022-11", tag: "BOOTCAMP", color: C.blue, date: "Nov 2022", side: "ENTRY",

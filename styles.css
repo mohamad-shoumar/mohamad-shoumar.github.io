@@ -58,23 +58,6 @@ strong, b { color: var(--text); font-weight: 600; }
 .skip:focus { left: 8px; }
 :focus-visible { outline: 2px solid var(--up); outline-offset: 3px; border-radius: 6px; }
 
-/* ---------- ticker tape ---------- */
-.tape {
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-2);
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: var(--mono);
-  font-size: 12px;
-  height: 32px;
-  display: flex; align-items: center;
-}
-.tape__track { display: inline-flex; gap: 40px; padding-left: 40px; animation: tape 60s linear infinite; }
-.tape__item { color: var(--muted); }
-.tape__item b { color: var(--text); font-weight: 500; margin-right: 6px; }
-.tape__item i { font-style: normal; color: var(--up); margin-left: 6px; }
-@keyframes tape { to { transform: translateX(-50%); } }
-
 /* ---------- top bar ---------- */
 .topbar {
   position: sticky; top: 0; z-index: 20;
