@@ -39,14 +39,14 @@
       title: "Promoted to Backend Developer",
       body: "Led the move of internal Python microservices from Bazel to Poetry, and standardised the team's local development workflow." },
     { m: "2025-09", tag: "LEAD", color: C.up, date: "Sep 2025", side: "ADD",
-      title: "Team Lead — Algorithmic Trader",
+      title: "Team Lead · Algorithmic Trader",
       body: "Leading 5 engineers. Architected an event-driven backtesting platform on AWS Lambda + SQS: 800+ concurrent jobs, zero production failures. Added a slippage model and multi-position scaling." },
     { m: "2026-03", tag: "CERT", color: C.gold, gold: true, date: "Mar 2026", side: "SIGNAL",
-      title: "Zapier Academy — AI Builder Path",
+      title: "Zapier Academy: AI Builder Path",
       body: "Completed the AI Builder certification: multi-step automations with AI steps, webhooks, scheduling and Zapier Tables." },
-    { m: "2026-08", tag: "CHART", color: C.up, date: "Apr–Aug 2026", side: "ADD",
+    { m: "2026-08", tag: "CHART", color: C.up, date: "Apr to Aug 2026", side: "ADD",
       title: "Shipped the interactive backtest chart",
-      body: "Next.js + TypeScript on TradingView Lightweight Charts: trade markers, indicator panes, win/loss filters and lazy-loaded data — the same library drawing the chart above." },
+      body: "Next.js + TypeScript on TradingView Lightweight Charts: trade markers, indicator panes, win/loss filters and lazy-loaded data. The same library drawing the chart above." },
     { m: "2026-09", tag: "CERT", color: C.gold, gold: true, date: "Sep 2026", side: "SIGNAL",
       title: "Applied AI Engineering Workshop",
       body: "Completed Software Engineering Factory's applied AI engineering program: tool calling, RAG, structured outputs, evaluations and human approval gates." }
@@ -271,7 +271,7 @@
   }
 
   /* ---------------- reveal + counters ---------------- */
-  var targets = document.querySelectorAll(".section__head, .stat, .trade, .watch__group, .signal, .contact__card");
+  var targets = document.querySelectorAll(".section__head, .stat, .trade, .stack__row, .signal, .contact__card");
   if (!reduceMotion && "IntersectionObserver" in window) {
     targets.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
@@ -301,5 +301,4 @@
     requestAnimationFrame(frame);
   }
 
-  document.getElementById("year").textContent = new Date().getFullYear();
 })();

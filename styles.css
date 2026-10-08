@@ -207,13 +207,14 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
   gap: 16px; align-items: center;
   padding: 16px 20px;
 }
-.log__row--head { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); border-bottom: 1px solid var(--line); padding-top: 12px; padding-bottom: 12px; }
+.log__row--head { display: none; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); border-bottom: 1px solid var(--line); padding-top: 12px; padding-bottom: 12px; }
 .trade + .trade { border-top: 1px solid var(--line); }
 .trade summary { cursor: pointer; list-style: none; transition: background .2s; }
 .trade summary::-webkit-details-marker { display: none; }
 .trade summary:hover { background: var(--panel-2); }
 .trade[open] summary { background: var(--panel-2); }
 .trade__title { font-weight: 600; font-size: 17px; }
+.trade__title small { font-family: var(--mono); font-weight: 400; font-size: 12px; color: var(--dim); margin-left: 8px; }
 .trade__title::after { content: "+"; font-family: var(--mono); color: var(--dim); margin-left: 10px; }
 .trade[open] .trade__title::after { content: "−"; }
 .side { font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 5px; justify-self: start; }
@@ -228,23 +229,17 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
 .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0 0; padding: 0 20px 20px calc(20px + 96px + 16px + 70px + 16px); }
 .tags span { font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 3px 8px; border: 1px solid var(--line-2); border-radius: 5px; }
 
-/* watchlist */
-.watch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.watch__group { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
-.watch__group h3 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin: 0 0 14px; font-weight: 500; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  font-family: var(--mono); font-size: 13px;
-  padding: 7px 12px; border-radius: 8px;
-  background: var(--bg); border: 1px solid var(--line-2);
-  transition: border-color .2s, color .2s, transform .2s;
-}
-.chip::before { content: "▲ "; color: var(--up); font-size: 10px; }
-.chip:hover { border-color: var(--up); transform: translateY(-1px); }
-.chip--alt::before { content: "◆ "; color: var(--blue); }
-.chip--alt:hover { border-color: var(--blue); }
-.chip--gold::before { content: "★ "; color: var(--gold); }
-.chip--gold:hover { border-color: var(--gold); }
+/* stack */
+.stack { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.stack__row { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: center; padding: 18px 24px; transition: background .2s; }
+.stack__row + .stack__row { border-top: 1px solid var(--line); }
+.stack__row:hover { background: var(--panel-2); }
+.stack__row h3 { margin: 0; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.pills li { font-size: 15px; font-weight: 500; padding: 6px 14px; border-radius: 999px; background: var(--up-bg); color: var(--text); border: 1px solid rgba(46,230,166,.22); transition: border-color .2s, transform .2s; }
+.pills li:hover { border-color: var(--up); transform: translateY(-1px); }
+.pills--soft li { background: transparent; border-color: var(--line-2); color: var(--muted); font-weight: 400; }
+.pills--soft li:hover { border-color: var(--dim); color: var(--text); }
 
 /* signals */
 .signals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -257,7 +252,7 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
 .signal p { margin: 0; color: var(--muted); font-size: 15px; }
 
 /* contact */
-.contact { padding-bottom: clamp(48px, 8vw, 96px); }
+.contact { padding-bottom: clamp(64px, 10vw, 120px); }
 .contact__card { max-width: 640px; margin: 0 auto; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 4vw, 40px); }
 .order { margin-top: 24px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .order__row { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 14px 16px; background: var(--bg); font-family: var(--mono); font-size: 14px; transition: background .2s; }
@@ -267,7 +262,6 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
 .order__v { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .order__go { color: var(--up); }
 
-.foot { max-width: var(--max); margin: 0 auto; padding: 24px var(--gutter) 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--dim); font-size: 13px; border-top: 1px solid var(--line); }
 
 /* reveal on scroll */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
@@ -283,13 +277,16 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
   .brand__name { display: none; }
   .chart { height: 260px; }
   .tf--muted { display: none; }
-  .stats, .watch, .signals { grid-template-columns: minmax(0, 1fr); }
+  .stats, .signals { grid-template-columns: minmax(0, 1fr); }
+  .stack__row { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 16px; }
+  .pills li { font-size: 14px; padding: 5px 12px; }
   .stat { padding: 18px; }
   .log__row--head { display: none; }
   .log__row { grid-template-columns: auto 1fr; gap: 6px 10px; padding: 14px 16px; }
   .log__row .mono { order: 1; font-size: 12px; color: var(--muted); }
   .log__row .side { order: 0; }
   .log__row .trade__title { order: 2; grid-column: 1 / -1; }
+  .trade__title small { display: block; margin: 2px 0 0; }
   .log__row .status { order: 3; grid-column: 1 / -1; }
   .fills { padding: 4px 16px; }
   .tags { padding: 4px 16px 18px; }
