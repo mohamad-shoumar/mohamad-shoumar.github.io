@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohamad Shoumar — Backend Engineer</title>
+  <meta name="description" content="Mohamad Shoumar — Backend Engineer and Team Lead. I build event-driven backtesting systems that run 800+ concurrent jobs with zero production failures.">
+  <meta property="og:title" content="$SHMR — Mohamad Shoumar, Backend Engineer">
+  <meta property="og:description" content="My career, rendered as a backtest. Backend systems, trading infrastructure, and the team behind them.">
+  <meta name="theme-color" content="#0a0d11">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#report">Skip to content</a>
+
+  <!-- Ticker tape -->
+  <div class="tape" aria-hidden="true">
+    <div class="tape__track" id="tape"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand__logo">◆</span>
+      <span class="brand__sym">SHMR</span>
+      <span class="brand__name">Mohamad Shoumar</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#report">Report</a>
+      <a href="#log">Trade log</a>
+      <a href="#watchlist">Stack</a>
+      <a href="#signals">Signals</a>
+      <a class="nav__cta" href="#contact">Open position</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO: name + live career chart -->
+    <section class="hero">
+      <div class="hero__intro">
+        <p class="eyebrow"><span class="dot dot--live"></span> Market open · Beirut, Lebanon · Remote</p>
+        <h1>Mohamad<br>Shoumar</h1>
+        <p class="hero__role">Backend Engineer &amp; Team Lead</p>
+        <p class="hero__pitch">
+          I build the systems that turn trading ideas into tested results —
+          event-driven backends that run <strong>800+ jobs at once</strong> with
+          <strong>zero production failures</strong>. Below is my career, rendered
+          the way I know best: as a backtest.
+        </p>
+        <div class="hero__price">
+          <span class="price__sym">$SHMR</span>
+          <span class="price__val" id="price">—</span>
+          <span class="price__chg" id="chg">—</span>
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--buy" href="#contact">Buy · Hire me</a>
+          <a class="btn btn--ghost" href="https://github.com/mohamad-shoumar" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+
+      <figure class="chartcard" aria-labelledby="chart-cap">
+        <div class="chartcard__head">
+          <div>
+            <span class="pair">SHMR / CAREER</span>
+            <span class="tf">1M</span>
+            <span class="tf tf--muted">Nov 2022 → now</span>
+          </div>
+          <button class="btn btn--small" id="replay" type="button">↻ Replay</button>
+        </div>
+        <div class="chart" id="chart" role="img" aria-label="Candlestick chart of career growth from November 2022 to today, with markers at each milestone."></div>
+        <div class="tradecard" id="tradecard" aria-live="polite">
+          <p class="tradecard__hint">Tap a marker on the chart — or a milestone below — to inspect the trade.</p>
+        </div>
+        <div class="milestones" id="milestones" role="list" aria-label="Career milestones"></div>
+        <figcaption id="chart-cap" class="disclaimer">Illustrative chart. Past performance strongly suggests future results.</figcaption>
+      </figure>
+    </section>
+
+    <!-- BACKTEST REPORT: stats -->
+    <section class="section" id="report">
+      <header class="section__head">
+        <p class="kicker">01 · Backtest report</p>
+        <h2>The numbers</h2>
+      </header>
+      <div class="stats">
+        <div class="stat"><span class="stat__label">Peak concurrency</span><span class="stat__val" data-count="800" data-suffix="+">800+</span><span class="stat__note">Python backtest jobs running at once on AWS Lambda</span></div>
+        <div class="stat"><span class="stat__label">Production failures</span><span class="stat__val stat__val--up" data-count="0">0</span><span class="stat__note">Dead-letter queue, retries, idempotent writes</span></div>
+        <div class="stat"><span class="stat__label">Team size</span><span class="stat__val" data-count="5">5</span><span class="stat__note">Engineers I lead through planning, reviews and testing</span></div>
+        <div class="stat"><span class="stat__label">Promotions</span><span class="stat__val" data-count="2">2</span><span class="stat__note">Full Stack → Backend → Team Lead, same company</span></div>
+        <div class="stat"><span class="stat__label">Time in market</span><span class="stat__val" data-count="3" data-suffix="+ yrs">3+ yrs</span><span class="stat__note">Shipping production software since June 2023</span></div>
+        <div class="stat"><span class="stat__label">Certifications</span><span class="stat__val" data-count="2">2</span><span class="stat__note">Applied AI Engineering · AI Builder Path</span></div>
+      </div>
+    </section>
+
+    <!-- TRADE LOG: experience -->
+    <section class="section" id="log">
+      <header class="section__head">
+        <p class="kicker">02 · Trade log</p>
+        <h2>Experience</h2>
+        <p class="section__sub">Every position held at <strong>CoinQuant</strong> (Abu Dhabi, remote from Beirut). Open a row to see the fills.</p>
+      </header>
+
+      <div class="log">
+        <div class="log__row log__row--head" aria-hidden="true">
+          <span>Opened</span><span>Side</span><span>Position</span><span>Status</span>
+        </div>
+
+        <details class="trade" open>
+          <summary class="log__row">
+            <span class="mono">Sep 2025</span>
+            <span class="side side--long">LONG</span>
+            <span class="trade__title">Team Lead — Algorithmic Trader</span>
+            <span class="status status--open"><span class="dot dot--live"></span>Open</span>
+          </summary>
+          <ul class="fills">
+            <li><b>Architected an event-driven backtesting platform</b> on AWS Lambda and SQS that runs <b>800+ concurrent Python jobs with zero production failures</b>. Built the failure handling in: a dead-letter queue with redrive, idempotent PostgreSQL writes with retry and backoff, and idempotent credit refunds.</li>
+            <li><b>Lead a team of 5 engineers</b> through sprint planning, code reviews, and a strict unit and integration testing culture.</li>
+            <li>Built a <b>test suite across the full testing pyramid</b>, creating quality gates that let the team ship faster without losing code quality.</li>
+            <li>Built the <b>interactive backtest chart</b> in Next.js and TypeScript on TradingView Lightweight Charts — trade entry/exit markers, indicator panes, win/loss filters, and data lazy-loaded as you pan. <em>(The chart at the top of this page is a nod to it.)</em></li>
+            <li>Designed a <b>slippage model</b> that makes backtests more realistic and trading costs more accurate.</li>
+            <li>Led development of <b>multi-position scaling</b>, enabling advanced position sizing strategies.</li>
+            <li>Own third-party API integrations end to end, including an <b>event-driven Slack gateway</b> that routes authenticated events, enforces scoped permissions, and handles bot-to-bot messages in production.</li>
+          </ul>
+          <p class="tags"><span>AWS Lambda</span><span>SQS</span><span>Python</span><span>PostgreSQL</span><span>Next.js</span><span>TypeScript</span></p>
+        </details>
+
+        <details class="trade">
+          <summary class="log__row">
+            <span class="mono">Aug 2024</span>
+            <span class="side side--long">LONG</span>
+            <span class="trade__title">Backend Developer</span>
+            <span class="status status--closed">Closed · <b class="up">promoted</b></span>
+          </summary>
+          <ul class="fills">
+            <li>Led the <b>microservices packaging migration from Bazel to Poetry</b>, simplifying dependency management and making builds reproducible across internal Python services.</li>
+            <li>Set up a <b>standard local development workflow</b>, cutting environment setup and iteration time for the backend team.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>Poetry</span><span>Microservices</span><span>Docker</span></p>
+        </details>
+
+        <details class="trade">
+          <summary class="log__row">
+            <span class="mono">Jun 2023</span>
+            <span class="side side--long">LONG</span>
+            <span class="trade__title">Full Stack Developer</span>
+            <span class="status status--closed">Closed · <b class="up">promoted</b></span>
+          </summary>
+          <ul class="fills">
+            <li>Designed and built <b>REST APIs in Python</b> for the backtesting platform, serving market and simulation data to the product frontend.</li>
+            <li>Built the <b>backtesting platform UI from scratch</b>, turning a backend-only tool into a product used across the team.</li>
+            <li>Developed and shipped a <b>cross-platform mobile app</b> with React Native and Firebase.</li>
+          </ul>
+          <p class="tags"><span>Python</span><span>REST APIs</span><span>React</span><span>React Native</span><span>Firebase</span></p>
+        </details>
+      </div>
+    </section>
+
+    <!-- WATCHLIST: skills -->
+    <section class="section" id="watchlist">
+      <header class="section__head">
+        <p class="kicker">03 · Watchlist</p>
+        <h2>What I trade in</h2>
+        <p class="section__sub">The tools I reach for every day.</p>
+      </header>
+      <div class="watch">
+        <div class="watch__group">
+          <h3>Languages</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span></div>
+        </div>
+        <div class="watch__group">
+          <h3>Frameworks</h3>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">Node.js</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">React Native</span></div>
+        </div>
+        <div class="watch__group">
+          <h3>Data</h3>
+          <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Firebase</span></div>
+        </div>
+        <div class="watch__group">
+          <h3>Cloud &amp; tooling</h3>
+          <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">AWS SQS</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Datadog</span><span class="chip">Grafana</span><span class="chip">TradingView Lightweight Charts</span></div>
+        </div>
+        <div class="watch__group watch__group--wide">
+          <h3>How I build</h3>
+          <div class="chips"><span class="chip chip--alt">Event-driven architecture</span><span class="chip chip--alt">Serverless</span><span class="chip chip--alt">Message queues</span><span class="chip chip--alt">API design</span><span class="chip chip--alt">Async programming</span><span class="chip chip--alt">Microservices</span><span class="chip chip--alt">Data integration</span><span class="chip chip--alt">TDD</span><span class="chip chip--alt">Unit &amp; integration testing</span><span class="chip chip--alt">Agile / Scrum</span></div>
+        </div>
+        <div class="watch__group watch__group--wide">
+          <h3>Domain</h3>
+          <div class="chips"><span class="chip chip--gold">Algorithmic trading</span><span class="chip chip--gold">Backtesting</span><span class="chip chip--gold">Position sizing</span><span class="chip chip--gold">Slippage modelling</span><span class="chip chip--gold">Historical market data</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNALS: certifications + education -->
+    <section class="section" id="signals">
+      <header class="section__head">
+        <p class="kicker">04 · Signals</p>
+        <h2>Certifications &amp; education</h2>
+        <p class="section__sub">Always adding to the position.</p>
+      </header>
+      <div class="signals">
+        <article class="signal signal--new">
+          <div class="signal__top"><span class="badge badge--buy">NEW · Sep 2026</span><span class="signal__org">Software Engineering Factory</span></div>
+          <h3>Applied AI Engineering Workshop</h3>
+          <p>Completed the applied AI engineering program — building production-style AI features end to end: tool calling, retrieval (RAG), structured outputs, evaluations, and human approval gates.</p>
+        </article>
+        <article class="signal">
+          <div class="signal__top"><span class="badge">Mar 2026</span><span class="signal__org">Zapier Academy</span></div>
+          <h3>AI Builder Path</h3>
+          <p>Completed the AI Builder certification path — multi-step automations with AI steps, webhooks, scheduling, and Zapier Tables connecting business tools.</p>
+        </article>
+        <article class="signal">
+          <div class="signal__top"><span class="badge badge--gold">★ Star Developer</span><span class="signal__org">Software Engineering Factory</span></div>
+          <h3>Full Stack Software Engineering Bootcamp</h3>
+          <p>Nov 2022 – May 2023. Graduated as a Star Developer, shipping a full-stack web app.</p>
+        </article>
+        <article class="signal">
+          <div class="signal__top"><span class="badge">2018 – 2021</span><span class="signal__org">American University of Beirut</span></div>
+          <h3>Psychology</h3>
+          <p>Sep 2018 – Jun 2021.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact__card">
+        <p class="kicker">05 · Order entry</p>
+        <h2>Open a position</h2>
+        <p class="section__sub">Open to remote backend, software and full-stack roles. Based in Beirut, Lebanon (UTC+2/+3).</p>
+        <div class="order">
+          <a class="order__row" href="mailto:shoumar.mohamad1@gmail.com"><span class="order__k">EMAIL</span><span class="order__v">shoumar.mohamad1@gmail.com</span><span class="order__go">→</span></a>
+          <a class="order__row" href="https://www.linkedin.com/in/mohamad-shoumar/" target="_blank" rel="noopener"><span class="order__k">LINKEDIN</span><span class="order__v">in/mohamad-shoumar</span><span class="order__go">↗</span></a>
+          <a class="order__row" href="https://github.com/mohamad-shoumar" target="_blank" rel="noopener"><span class="order__k">GITHUB</span><span class="order__v">mohamad-shoumar</span><span class="order__go">↗</span></a>
+        </div>
+        <a class="btn btn--buy btn--big" href="mailto:shoumar.mohamad1@gmail.com?subject=Let's%20talk">Place order · Say hello</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© <span id="year">2026</span> Mohamad Shoumar</span>
+    <span class="mono">Built by hand · no frameworks · <span class="up">● all systems normal</span></span>
+  </footer>
+
+  <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
