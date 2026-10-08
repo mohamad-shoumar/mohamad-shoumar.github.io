@@ -1,4 +1,6 @@
-# mohamad-shoumar.github.io
+# mohamadshoumar.com
+
+Live at https://mohamadshoumar.com
 
 Personal portfolio of Mohamad Shoumar — my career rendered as a trading backtest.
 
