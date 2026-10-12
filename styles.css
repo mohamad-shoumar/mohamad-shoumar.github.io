@@ -228,7 +228,6 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
 .signals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .signal { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; transition: border-color .2s, transform .2s; }
 .signal:hover { border-color: var(--line-2); transform: translateY(-2px); }
-.signal--new { border-color: rgba(46,230,166,.35); background: linear-gradient(160deg, rgba(46,230,166,.08), var(--panel) 50%); }
 .signal__top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 .signal__org { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .signal h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -0.01em; }

@@ -163,7 +163,7 @@
       crosshair: { mode: 1, vertLine: { color: "#3a4554", labelBackgroundColor: "#222a35" }, horzLine: { color: "#3a4554", labelBackgroundColor: "#222a35" } },
       handleScroll: false,
       handleScale: false,
-      localization: { priceFormatter: function (p) { return "$" + p.toFixed(0); } }
+      localization: { priceFormatter: function (p) { return p < 0 ? "" : "$" + p.toFixed(0); } }
     });
     series = chart.addCandlestickSeries({
       upColor: C.up, downColor: C.down, borderUpColor: C.up, borderDownColor: C.down,
@@ -190,47 +190,16 @@
       if (best >= 0) select(best, false);
     });
 
-    var replaying = false;
-    var replay = function () {
-      if (replaying) return;
-      replaying = true;
-      series.setData([]);
-      series.setMarkers([]);
-      var n = 0;
-      var step = function () {
-        var c = candles[n];
-        series.update(cp(c));
-        series.setMarkers(markers.filter(function (m) { return m.time <= c.time; }).map(cp));
-        chart.timeScale().fitContent();
-        showPrice(c.close, null);
-        if (byMonth[c.time.slice(0, 7)]) select(milestones.indexOf(byMonth[c.time.slice(0, 7)]), false);
-        n++;
-        if (n < candles.length) setTimeout(step, 55);
-        else replaying = false;
-      };
-      step();
-    };
-
-    if (reduceMotion) {
-      series.setData(candles.map(cp));
-      series.setMarkers(markers.map(cp));
-      chart.timeScale().fitContent();
-      showPrice(candles[candles.length - 1].close, null);
-      select(milestones.length - 1, false);
-    } else {
-      // start replay when the chart is on screen
-      var started = false;
-      var io0 = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting && !started) { started = true; replay(); io0.disconnect(); }
-      }, { threshold: 0.3 });
-      io0.observe(chartEl);
-    }
-    document.getElementById("replay").addEventListener("click", replay);
+    // draw the whole chart at once and open the latest milestone
+    series.setData(candles.map(cp));
+    series.setMarkers(markers.map(cp));
+    chart.timeScale().fitContent();
+    showPrice(candles[candles.length - 1].close, null);
+    select(milestones.length - 1, false);
 
     // live tick on the latest candle
     if (!reduceMotion) {
       setInterval(function () {
-        if (replaying) return;
         var last = candles[candles.length - 1];
         var prev = last.close;
         var drift = (Math.random() - 0.45) * last.close * 0.006;
@@ -245,7 +214,6 @@
   } else {
     // chart library failed to load: keep the content usable
     chartEl.style.display = "none";
-    document.getElementById("replay").style.display = "none";
     showPrice(candles[candles.length - 1].close, null);
     select(milestones.length - 1, false);
   }
