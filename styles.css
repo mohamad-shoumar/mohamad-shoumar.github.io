@@ -53,7 +53,6 @@ body::before {
 a { color: inherit; text-decoration: none; }
 strong, b { color: var(--text); font-weight: 600; }
 .up { color: var(--up); }
-.gold { color: var(--gold); }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--up); color: #000; padding: 8px 12px; border-radius: 8px; z-index: 100; }
 .skip:focus { left: 8px; }
 :focus-visible { outline: 2px solid var(--up); outline-offset: 3px; border-radius: 6px; }
@@ -239,11 +238,11 @@ h2 { font-size: clamp(30px, 4.5vw, 48px); letter-spacing: -0.03em; line-height: 
 
 /* ---------- education ---------- */
 .edu { margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
-.edu__row { display: grid; grid-template-columns: 120px minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 14px 20px; }
+.edu__row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 16px 20px; }
 .edu__row + .edu__row { border-top: 1px solid var(--line); }
 .edu__when { font-family: var(--mono); font-size: 13px; color: var(--dim); }
 .edu__what { color: var(--muted); }
-.edu__note { color: var(--dim); font-size: 14px; }
+.edu__honor { display: block; margin-top: 2px; font-size: 14px; color: var(--dim); }
 
 /* ---------- contact ---------- */
 .contact { padding-bottom: clamp(64px, 10vw, 120px); }
