@@ -89,7 +89,7 @@
         <div class="case__body">
           <dl class="case__dl">
             <dt>Problem</dt>
-            <dd>Users run many backtests at once, and each one costs credits. Some jobs will always fail, from a network error to an invalid parameter, so the system has to recover cleanly: no lost work, no duplicate results, no wrong charges.</dd>
+            <dd>Users run many backtests at once, and each one costs credits. Some jobs will always fail, from a network error to an invalid parameter, so the system has to recover cleanly: no lost work, no duplicate results, no duplicate refunds.</dd>
             <dt>What I built</dt>
             <dd>Each backtest request goes onto an SQS queue and is processed by AWS Lambda workers, which write results to PostgreSQL. I designed and built the Lambda system and its queues.</dd>
             <dt>Key decisions</dt>
@@ -101,7 +101,7 @@
               </ul>
             </dd>
           </dl>
-          <div class="flow" aria-label="Diagram: backtest request to SQS queue to Lambda workers to PostgreSQL; failed jobs go to a dead-letter queue and can be redriven.">
+          <div class="flow" role="group" aria-label="Diagram: backtest request to SQS queue to Lambda workers to PostgreSQL; failed jobs go to a dead-letter queue and can be redriven.">
             <div class="flow__main">
               <span class="flow__box">Backtest request</span>
               <span class="flow__arrow" aria-hidden="true">→</span>
