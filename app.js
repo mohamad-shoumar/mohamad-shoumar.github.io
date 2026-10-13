@@ -6,28 +6,28 @@
 
   /* ---------------- milestones ---------------- */
   var milestones = [
-    { m: "2022-11", tag: "BOOTCAMP", color: C.blue, date: "Nov 2022", side: "ENTRY",
+    { m: "2022-11", tag: "BOOTCAMP", color: C.blue, date: "Nov 2022", kind: "Education",
       title: "Started the Full Stack Software Engineering Bootcamp",
       body: "Software Engineering Factory. Six months of building full-stack web apps end to end." },
-    { m: "2023-05", tag: "STAR DEV", color: C.gold, gold: true, date: "May 2023", side: "SIGNAL",
+    { m: "2023-05", tag: "STAR DEV", color: C.gold, gold: true, date: "May 2023", kind: "Education",
       title: "Graduated as a Star Developer",
       body: "Finished the bootcamp as a Star Developer, shipping a full-stack web app." },
-    { m: "2023-06", tag: "HIRED", color: C.up, date: "Jun 2023", side: "LONG",
+    { m: "2023-06", tag: "HIRED", color: C.up, date: "Jun 2023", kind: "New role",
       title: "Joined CoinQuant as Full Stack Developer",
       body: "Built the backtesting platform UI from scratch and the Python REST APIs behind it, turning a backend-only tool into a product the team uses. Also shipped a React Native + Firebase mobile app." },
-    { m: "2024-08", tag: "PROMO", color: C.up, date: "Aug 2024", side: "ADD",
+    { m: "2024-08", tag: "PROMO", color: C.up, date: "Aug 2024", kind: "Promotion",
       title: "Promoted to Backend Developer",
       body: "Led the move of internal Python microservices from Bazel to Poetry, and standardised the team's local development workflow." },
-    { m: "2025-09", tag: "LEAD", color: C.up, date: "Sep 2025", side: "ADD",
+    { m: "2025-09", tag: "LEAD", color: C.up, date: "Sep 2025", kind: "Promotion",
       title: "Team Lead · Algorithmic Trader",
-      body: "Leading 5 engineers. Architected an event-driven backtesting platform on AWS Lambda + SQS: 800+ concurrent jobs, zero production failures. Added a slippage model and multi-position scaling." },
-    { m: "2026-03", tag: "CERT", color: C.gold, gold: true, date: "Mar 2026", side: "SIGNAL",
+      body: "Leading a team of 5 engineers. Architected an event-driven backtesting platform on AWS Lambda and SQS that runs 800+ jobs in parallel. Added a slippage model and multi-position scaling." },
+    { m: "2026-03", tag: "CERT", color: C.gold, gold: true, date: "Mar 2026", kind: "Certification",
       title: "Zapier Academy: AI Builder Path",
       body: "Completed the AI Builder certification: multi-step automations with AI steps, webhooks, scheduling and Zapier Tables." },
-    { m: "2026-08", tag: "CHART", color: C.up, date: "Apr to Aug 2026", side: "ADD",
+    { m: "2026-08", tag: "CHART", color: C.up, date: "Apr to Aug 2026", kind: "Shipped",
       title: "Shipped the interactive backtest chart",
-      body: "Next.js + TypeScript on TradingView Lightweight Charts: trade markers, indicator panes, win/loss filters and lazy-loaded data. The same library drawing the chart above." },
-    { m: "2026-09", tag: "CERT", color: C.gold, gold: true, date: "Sep 2026", side: "SIGNAL",
+      body: "Next.js + TypeScript on TradingView Lightweight Charts: trade markers, indicator panes, win/loss filters and lazy-loaded data. The same library draws this timeline." },
+    { m: "2026-09", tag: "CERT", color: C.gold, gold: true, date: "Sep 2026", kind: "Certification",
       title: "Applied AI Engineering Workshop",
       body: "Completed Software Engineering Factory's applied AI engineering program: tool calling, RAG, structured outputs, evaluations and human approval gates." }
   ];
@@ -111,9 +111,9 @@
     chipEls.push(b);
   });
 
-  function sideBadge(side) {
-    var cls = side === "SIGNAL" ? "badge badge--gold" : "badge badge--buy";
-    return '<span class="' + cls + '">' + side + "</span>";
+  function kindBadge(kind) {
+    var cls = kind === "Education" || kind === "Certification" ? "badge badge--gold" : "badge badge--up";
+    return '<span class="' + cls + '">' + kind + "</span>";
   }
 
   var current = -1;
@@ -125,7 +125,7 @@
     void card.offsetWidth;
     card.classList.add("is-fresh");
     card.innerHTML =
-      '<div class="tradecard__top">' + sideBadge(ms.side) + "<span>" + ms.date + "</span><span>· SHMR</span></div>" +
+      '<div class="tradecard__top">' + kindBadge(ms.kind) + "<span>" + ms.date + "</span></div>" +
       "<h3>" + ms.title + "</h3><p>" + ms.body + "</p>";
     if (focusChart && chart) {
       var idx = monthIndex(ms.m) - startIdx;
@@ -137,37 +137,22 @@
 
   /* ---------------- chart ---------------- */
   var chart = null, series = null;
-  var priceEl = document.getElementById("price");
-  var chgEl = document.getElementById("chg");
-  var baseOpen = candles[0].open;
-
-  function showPrice(close, prev) {
-    priceEl.textContent = "$" + close.toFixed(2);
-    var pct = ((close - baseOpen) / baseOpen) * 100;
-    chgEl.textContent = "▲ " + pct.toFixed(0) + "% since entry";
-    if (prev != null) {
-      priceEl.classList.remove("flash-up", "flash-down");
-      priceEl.classList.add(close >= prev ? "flash-up" : "flash-down");
-      setTimeout(function () { priceEl.classList.remove("flash-up", "flash-down"); }, 500);
-    }
-  }
-
   var chartEl = document.getElementById("chart");
   if (window.LightweightCharts) {
     chart = LightweightCharts.createChart(chartEl, {
       autoSize: true,
       layout: { background: { type: "solid", color: "transparent" }, textColor: C.text, fontFamily: "JetBrains Mono, monospace", fontSize: 11 },
       grid: { vertLines: { color: C.line }, horzLines: { color: C.line } },
-      rightPriceScale: { borderColor: C.line, scaleMargins: { top: 0.1, bottom: 0.15 } },
+      rightPriceScale: { visible: false, scaleMargins: { top: 0.1, bottom: 0.15 } },
       timeScale: { borderColor: C.line, fixLeftEdge: true, fixRightEdge: true, rightOffset: 2 },
-      crosshair: { mode: 1, vertLine: { color: "#3a4554", labelBackgroundColor: "#222a35" }, horzLine: { color: "#3a4554", labelBackgroundColor: "#222a35" } },
+      crosshair: { mode: 1, vertLine: { color: "#3a4554", labelBackgroundColor: "#222a35" }, horzLine: { visible: false, labelVisible: false } },
       handleScroll: false,
-      handleScale: false,
-      localization: { priceFormatter: function (p) { return p < 0 ? "" : "$" + p.toFixed(0); } }
+      handleScale: false
     });
     series = chart.addCandlestickSeries({
       upColor: C.up, downColor: C.down, borderUpColor: C.up, borderDownColor: C.down,
       wickUpColor: C.up, wickDownColor: C.down,
+      lastValueVisible: false, priceLineVisible: false,
       autoscaleInfoProvider: function (orig) {
         var r = orig();
         if (r && r.priceRange) r.priceRange.minValue = Math.max(0, r.priceRange.minValue);
@@ -194,59 +179,24 @@
     series.setData(candles.map(cp));
     series.setMarkers(markers.map(cp));
     chart.timeScale().fitContent();
-    showPrice(candles[candles.length - 1].close, null);
     select(milestones.length - 1, false);
-
-    // live tick on the latest candle
-    if (!reduceMotion) {
-      setInterval(function () {
-        var last = candles[candles.length - 1];
-        var prev = last.close;
-        var drift = (Math.random() - 0.45) * last.close * 0.006;
-        var close = r2(Math.min(Math.max(last.close + drift, last.open * 0.98), last.open * 1.12));
-        last.close = close;
-        last.high = Math.max(last.high, close);
-        last.low = Math.min(last.low, close);
-        series.update(cp(last));
-        showPrice(close, prev);
-      }, 1600);
-    }
   } else {
     // chart library failed to load: keep the content usable
     chartEl.style.display = "none";
-    showPrice(candles[candles.length - 1].close, null);
     select(milestones.length - 1, false);
   }
 
-  /* ---------------- reveal + counters ---------------- */
-  var targets = document.querySelectorAll(".section__head, .stat, .trade, .stack__row, .signal, .contact__card");
+  /* ---------------- reveal on scroll ---------------- */
+  var targets = document.querySelectorAll(".section__head, .case, .strip, .role, .skills, .edu, .contact__card");
   if (!reduceMotion && "IntersectionObserver" in window) {
     targets.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add("is-in");
-        var v = e.target.querySelector("[data-count]");
-        if (v) countUp(v);
         io.unobserve(e.target);
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
     targets.forEach(function (el) { io.observe(el); });
   }
-
-  function countUp(el) {
-    var end = +el.getAttribute("data-count");
-    var suffix = el.getAttribute("data-suffix") || "";
-    if (end === 0) return;
-    var t0 = null, dur = 1100;
-    function frame(t) {
-      if (!t0) t0 = t;
-      var p = Math.min((t - t0) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(end * eased) + suffix;
-      if (p < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
 })();

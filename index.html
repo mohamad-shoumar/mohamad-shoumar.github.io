@@ -4,41 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mohamad Shoumar | Backend Engineer</title>
-  <meta name="description" content="Mohamad Shoumar, Backend Engineer and Team Lead. I build reliable backend systems and lead the engineers who ship them.">
+  <meta name="description" content="Mohamad Shoumar, Backend Engineer and Team Lead. I build reliable, event-driven systems in Python and AWS, and lead the engineers who ship them.">
   <meta property="og:title" content="Mohamad Shoumar, Backend Engineer">
-  <meta property="og:description" content="My career, rendered as a backtest. Backend systems, trading infrastructure, and the team behind them.">
+  <meta property="og:description" content="Backend Engineer and Team Lead building reliable, event-driven systems in Python and AWS.">
   <meta property="og:url" content="https://mohamadshoumar.com/">
+  <meta property="og:image" content="https://mohamadshoumar.com/photo.jpg">
   <link rel="canonical" href="https://mohamadshoumar.com/">
   <meta name="theme-color" content="#0a0d11">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
-  <a class="skip" href="#report">Skip to content</a>
+  <a class="skip" href="#work">Skip to content</a>
 
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Back to top">
       <span class="brand__logo">◆</span>
-      <span class="brand__sym">SHMR</span>
       <span class="brand__name">Mohamad Shoumar</span>
     </a>
     <nav class="nav" aria-label="Sections">
-      <a href="#report">Numbers</a>
-      <a href="#log">Experience</a>
-      <a href="#watchlist">Stack</a>
-      <a href="#signals">Certifications</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a class="nav__cta" href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- HERO: name + live career chart -->
+    <!-- 01 HERO -->
     <section class="hero">
       <div class="hero__intro">
-        <p class="eyebrow"><span class="dot dot--live"></span> Market open · Beirut, Lebanon · Remote</p>
+        <div class="hero__id">
+          <img class="avatar" src="photo.jpg" width="104" height="104" alt="Mohamad Shoumar">
+          <p class="eyebrow"><span class="dot dot--live"></span> Beirut, Lebanon · Open to remote roles</p>
+        </div>
         <h1>Mohamad<br>Shoumar</h1>
         <p class="hero__role">Backend Engineer &amp; Team Lead</p>
         <p class="hero__pitch">
@@ -46,196 +49,269 @@
           APIs, cloud services, data pipelines and the product interfaces on top.
           I care about clean design, strong testing and software that holds up in production.
         </p>
-        <div class="hero__price">
-          <span class="price__sym">$SHMR</span>
-          <span class="price__val" id="price"></span>
-          <span class="price__chg" id="chg"></span>
-        </div>
+        <p class="hero__stack">Python · AWS · PostgreSQL · TypeScript</p>
         <div class="hero__actions">
-          <a class="btn btn--buy" href="#contact">Get in touch</a>
-          <a class="btn btn--ghost" href="https://github.com/mohamad-shoumar" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn btn--primary" href="#work">View my work</a>
+          <a class="btn btn--ghost" href="Mohamad_Shoumar_Resume.pdf" download>Download résumé</a>
+          <a class="btn btn--ghost btn--icon" href="https://github.com/mohamad-shoumar" target="_blank" rel="noopener" aria-label="GitHub profile">GitHub ↗</a>
         </div>
       </div>
 
       <figure class="chartcard" aria-labelledby="chart-cap">
         <div class="chartcard__head">
-          <div>
-            <span class="pair">SHMR / CAREER</span>
-            <span class="tf">1M</span>
-            <span class="tf tf--muted">Nov 2022 → now</span>
-          </div>
+          <span id="chart-cap" class="chartcard__title">Career timeline</span>
+          <span class="chartcard__range">Nov 2022 → now</span>
         </div>
-        <div class="chart" id="chart" role="img" aria-label="Candlestick chart of career growth from November 2022 to today, with markers at each milestone."></div>
+        <div class="chart" id="chart" role="img" aria-label="Chart of career growth from November 2022 to today, with markers at each milestone."></div>
         <div class="tradecard" id="tradecard" aria-live="polite">
           <p class="tradecard__hint">Tap a marker on the chart, or a milestone below, to see what happened.</p>
         </div>
         <div class="milestones" id="milestones" role="list" aria-label="Career milestones"></div>
-        <figcaption id="chart-cap" class="disclaimer">Illustrative chart. Past performance strongly suggests future results.</figcaption>
       </figure>
     </section>
 
-    <!-- BACKTEST REPORT: stats -->
-    <section class="section" id="report">
+    <!-- 02 SELECTED WORK -->
+    <section class="section" id="work">
       <header class="section__head">
-        <p class="kicker">01 · Backtest report</p>
-        <h2>The numbers</h2>
+        <p class="kicker">01 · Selected work</p>
+        <h2>Things I've built</h2>
+        <p class="section__sub">Three projects, with the problem, what I built and the decisions that mattered.</p>
       </header>
-      <div class="stats">
-        <div class="stat"><span class="stat__label">Peak concurrency</span><span class="stat__val" data-count="800" data-suffix="+">800+</span><span class="stat__note">Python backtest jobs running at once on AWS Lambda</span></div>
-        <div class="stat"><span class="stat__label">Production failures</span><span class="stat__val stat__val--up" data-count="0">0</span><span class="stat__note">Dead-letter queue, retries, idempotent writes</span></div>
-        <div class="stat"><span class="stat__label">Team size</span><span class="stat__val" data-count="5">5</span><span class="stat__note">Engineers I lead through planning, reviews and testing</span></div>
-        <div class="stat"><span class="stat__label">Promotions</span><span class="stat__val" data-count="2">2</span><span class="stat__note">Full Stack → Backend → Team Lead</span></div>
-        <div class="stat"><span class="stat__label">Time in market</span><span class="stat__val" data-count="3" data-suffix="+ yrs">3+ yrs</span><span class="stat__note">Shipping production software since June 2023</span></div>
-        <div class="stat"><span class="stat__label">Certifications</span><span class="stat__val" data-count="2">2</span><span class="stat__note">Applied AI Engineering · AI Builder Path</span></div>
-      </div>
+
+      <article class="case">
+        <div class="case__side">
+          <p class="case__meta">CoinQuant · Team Lead · Private codebase</p>
+          <h3>Event-driven backtesting platform</h3>
+          <p class="case__summary">A serverless system on AWS that runs trading strategy backtests in parallel.</p>
+          <ul class="tags"><li>Python</li><li>AWS Lambda</li><li>AWS SQS</li><li>PostgreSQL</li></ul>
+          <p class="case__result"><span class="case__num">800+</span> backtests running in parallel</p>
+        </div>
+        <div class="case__body">
+          <dl class="case__dl">
+            <dt>Problem</dt>
+            <dd>Users run many backtests at once, and each one costs credits. Some jobs will always fail, from a network error to an invalid parameter, so the system has to recover cleanly: no lost work, no duplicate results, no wrong charges.</dd>
+            <dt>What I built</dt>
+            <dd>Each backtest request goes onto an SQS queue and is processed by AWS Lambda workers, which write results to PostgreSQL. I designed and built the Lambda system and its queues.</dd>
+            <dt>Key decisions</dt>
+            <dd>
+              <ul class="points">
+                <li>Failed jobs go to a <b>dead-letter queue</b> and can be redriven (replayed) once the cause is fixed.</li>
+                <li>Result writes are <b>idempotent</b>, with retry and backoff, so a retried job never writes its results twice.</li>
+                <li>Credit refunds are <b>idempotent</b> too, so a failed job refunds the user exactly once.</li>
+              </ul>
+            </dd>
+          </dl>
+          <div class="flow" aria-label="Diagram: backtest request to SQS queue to Lambda workers to PostgreSQL; failed jobs go to a dead-letter queue and can be redriven.">
+            <div class="flow__main">
+              <span class="flow__box">Backtest request</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__box">SQS queue</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__box flow__box--hi">Lambda workers<small>800+ in parallel</small></span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__box">PostgreSQL<small>idempotent writes</small></span>
+            </div>
+            <div class="flow__fail">
+              <span class="flow__label">on failure</span>
+              <span class="flow__box flow__box--warn">Dead-letter queue</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__box flow__box--warn">Redrive (replay)</span>
+              <span class="flow__label">credits refunded exactly once</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__side">
+          <p class="case__meta">Side project · Public on GitHub · Sep 2026 to now</p>
+          <h3>Job Hunter</h3>
+          <p class="case__summary">Finds new remote software jobs that can hire someone living in Lebanon, then helps apply to them.</p>
+          <ul class="tags"><li>Python</li><li>SQLite</li><li>Claude</li><li>DeepSeek</li><li>Gmail SMTP/IMAP</li></ul>
+          <p class="case__result"><span class="case__num">295</span> automated tests</p>
+          <a class="case__link" href="https://github.com/mohamad-shoumar/job-hunter" target="_blank" rel="noopener">View the code on GitHub ↗</a>
+        </div>
+        <div class="case__body">
+          <dl class="case__dl">
+            <dt>Problem</dt>
+            <dd>Many "remote" jobs can only hire in certain countries, and the posting often doesn't say so clearly. Checking every listing by hand takes hours.</dd>
+            <dt>What I built</dt>
+            <dd>A Python tool that runs every day. It pulls listings from job boards, company career pages and Hacker News, stores them in SQLite, and uses plain rules to decide whether each job can hire from Lebanon, with a readable reason for every decision. A local web app shows who to email at each company, drafts the email, sends it from Gmail and tracks replies, bounces and follow-ups. It also writes a tailored CV and cover letter for each shortlisted job with Claude and DeepSeek.</dd>
+            <dt>Key decisions</dt>
+            <dd>
+              <ul class="points">
+                <li><b>AI only judges the unclear jobs</b>, and must back every answer with an exact quote that the code then finds word for word on a page it fetched itself. No quote, no decision.</li>
+                <li><b>Tailored CVs are checked against a master profile</b>, so they never claim a skill, number or job that isn't true.</li>
+                <li><b>Sending is safe to click twice</b>: each email is recorded before it goes out, and a unique database rule blocks a second send.</li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case__side">
+          <p class="case__meta">CoinQuant · Apr to Aug 2026 · Private codebase</p>
+          <h3>Interactive backtest chart</h3>
+          <p class="case__summary">The chart for reviewing a backtest's trades on top of market data.</p>
+          <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>TradingView Lightweight Charts</li></ul>
+          <p class="case__note">The career timeline at the top of this page uses the same charting library.</p>
+        </div>
+        <div class="case__body">
+          <dl class="case__dl">
+            <dt>Problem</dt>
+            <dd>To trust a backtest, you need to see where each trade opened and closed, next to the indicators the strategy used, across long stretches of market data.</dd>
+            <dt>What I built</dt>
+            <dd>An interactive chart in Next.js and TypeScript on TradingView Lightweight Charts, with trade entry and exit markers, indicator panes, and filters for winning and losing trades.</dd>
+            <dt>Key decision</dt>
+            <dd>Candle and indicator data is <b>lazy-loaded as you pan</b>, instead of loading the whole history up front.</dd>
+          </dl>
+        </div>
+      </article>
     </section>
 
-    <!-- TRADE LOG: experience -->
-    <section class="section" id="log">
+    <!-- 03 EXPERIENCE -->
+    <section class="section" id="experience">
       <header class="section__head">
-        <p class="kicker">02 · Trade log</p>
-        <h2>Experience</h2>
+        <p class="kicker">02 · Experience</p>
+        <h2>Career &amp; impact</h2>
       </header>
 
-      <div class="log">
+      <ul class="strip">
+        <li><b>3+ years</b> shipping production software</li>
+        <li><b>2 promotions</b> since 2023</li>
+        <li><b>5 engineers</b> on the team I lead</li>
+        <li><b>800+</b> backtests in parallel</li>
+      </ul>
 
-        <details class="trade" open>
-          <summary class="log__row">
-            <span class="mono">Sep 2025</span>
-            <span class="side side--long">LONG</span>
-            <span class="trade__title">Team Lead · Algorithmic Trader <small>CoinQuant</small></span>
-            <span class="status status--open"><span class="dot dot--live"></span>Open</span>
-          </summary>
-          <ul class="fills">
-            <li><b>Architected an event-driven backtesting platform</b> on AWS Lambda and SQS that runs <b>800+ concurrent Python jobs with zero production failures</b>. Built the failure handling in: a dead-letter queue with redrive, idempotent PostgreSQL writes with retry and backoff, and idempotent credit refunds.</li>
-            <li><b>Lead a team of 5 engineers</b> through sprint planning, code reviews, and a strict unit and integration testing culture.</li>
-            <li>Built a <b>test suite across the full testing pyramid</b>, creating quality gates that let the team ship faster without losing code quality.</li>
-            <li>Built the <b>interactive backtest chart</b> in Next.js and TypeScript on TradingView Lightweight Charts: trade entry/exit markers, indicator panes, win/loss filters, and data lazy-loaded as you pan. <em>(The chart at the top of this page is a nod to it.)</em></li>
-            <li>Designed a <b>slippage model</b> that makes backtests more realistic and trading costs more accurate.</li>
-            <li>Led development of <b>multi-position scaling</b>, enabling advanced position sizing strategies.</li>
-            <li>Own third-party API integrations end to end, including an <b>event-driven Slack gateway</b> that routes authenticated events, enforces scoped permissions, and handles bot-to-bot messages in production.</li>
+      <div class="roles">
+        <article class="role">
+          <header class="role__head">
+            <div>
+              <h3>Team Lead · Algorithmic Trader</h3>
+              <p class="role__org">CoinQuant, Abu Dhabi · remote</p>
+            </div>
+            <p class="role__when"><span class="dot dot--live"></span> Sep 2025 to now</p>
+          </header>
+          <ul class="points">
+            <li><b>Architected the event-driven backtesting platform</b> on AWS Lambda and SQS: 800+ jobs in parallel, with a dead-letter queue, idempotent writes and safe credit refunds. <a class="inline-link" href="#work">See the case study</a></li>
+            <li><b>Lead a team of 5 engineers</b> through sprint planning, code reviews and a strict unit and integration testing culture.</li>
+            <li>Built a <b>test suite across the full testing pyramid</b>, giving the team quality gates to ship faster without losing code quality.</li>
           </ul>
-          <p class="tags"><span>AWS Lambda</span><span>SQS</span><span>Python</span><span>PostgreSQL</span><span>Next.js</span><span>TypeScript</span></p>
-        </details>
+          <details class="more">
+            <summary>Show 4 more</summary>
+            <ul class="points">
+              <li>Built the <b>interactive backtest chart</b> in Next.js and TypeScript on TradingView Lightweight Charts.</li>
+              <li>Designed a <b>slippage model</b> that makes backtests more realistic and trading costs more accurate.</li>
+              <li>Led development of <b>multi-position scaling</b>, enabling advanced position sizing strategies.</li>
+              <li>Own third-party API integrations end to end, including an <b>event-driven Slack gateway</b> that routes authenticated events, enforces scoped permissions and handles bot-to-bot messages in production.</li>
+            </ul>
+          </details>
+        </article>
 
-        <details class="trade">
-          <summary class="log__row">
-            <span class="mono">Aug 2024</span>
-            <span class="side side--long">LONG</span>
-            <span class="trade__title">Backend Developer <small>CoinQuant</small></span>
-            <span class="status status--closed">Closed · <b class="up">promoted</b></span>
-          </summary>
-          <ul class="fills">
+        <article class="role">
+          <header class="role__head">
+            <div>
+              <h3>Backend Developer</h3>
+              <p class="role__org">CoinQuant, Abu Dhabi · remote</p>
+            </div>
+            <p class="role__when">Aug 2024 to Aug 2025 · <span class="up">promoted</span></p>
+          </header>
+          <ul class="points">
             <li>Led the <b>microservices packaging migration from Bazel to Poetry</b>, simplifying dependency management and making builds reproducible across internal Python services.</li>
             <li>Set up a <b>standard local development workflow</b>, cutting environment setup and iteration time for the backend team.</li>
           </ul>
-          <p class="tags"><span>Python</span><span>Poetry</span><span>Microservices</span><span>Docker</span></p>
-        </details>
+        </article>
 
-        <details class="trade">
-          <summary class="log__row">
-            <span class="mono">Jun 2023</span>
-            <span class="side side--long">LONG</span>
-            <span class="trade__title">Full Stack Developer <small>CoinQuant</small></span>
-            <span class="status status--closed">Closed · <b class="up">promoted</b></span>
-          </summary>
-          <ul class="fills">
-            <li>Designed and built <b>REST APIs in Python</b> for the backtesting platform, serving market and simulation data to the product frontend.</li>
+        <article class="role">
+          <header class="role__head">
+            <div>
+              <h3>Full Stack Developer</h3>
+              <p class="role__org">CoinQuant, Abu Dhabi · remote</p>
+            </div>
+            <p class="role__when">Jun 2023 to Jul 2024 · <span class="up">promoted</span></p>
+          </header>
+          <ul class="points">
             <li>Built the <b>backtesting platform UI from scratch</b>, turning a backend-only tool into a product used across the team.</li>
+            <li>Designed and built <b>REST APIs in Python</b> serving market and simulation data to the product frontend.</li>
             <li>Developed and shipped a <b>cross-platform mobile app</b> with React Native and Firebase.</li>
           </ul>
-          <p class="tags"><span>Python</span><span>REST APIs</span><span>React</span><span>React Native</span><span>Firebase</span></p>
-        </details>
+        </article>
       </div>
     </section>
 
-    <!-- WATCHLIST: skills -->
-    <section class="section" id="watchlist">
+    <!-- 04 SKILLS -->
+    <section class="section" id="skills">
       <header class="section__head">
-        <p class="kicker">03 · Stack</p>
-        <h2>Tech stack</h2>
-        <p class="section__sub">The tools I reach for every day.</p>
+        <p class="kicker">03 · Skills</p>
+        <h2>Core expertise</h2>
       </header>
-      <div class="stack">
-        <div class="stack__row">
-          <h3>Languages</h3>
-          <ul class="pills"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul>
+      <div class="skills">
+        <div class="skills__group">
+          <h3>Core</h3>
+          <ul class="pills"><li>Python</li><li>PostgreSQL &amp; SQL</li><li>AWS Lambda</li><li>AWS SQS</li><li>Event-driven architecture</li><li>API design</li><li>Testing &amp; TDD</li></ul>
         </div>
-        <div class="stack__row">
-          <h3>Backend</h3>
-          <ul class="pills"><li>FastAPI</li><li>Django</li><li>Node.js</li></ul>
+        <div class="skills__group">
+          <h3>Also work with</h3>
+          <ul class="pills pills--soft"><li>TypeScript</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>React Native</li><li>FastAPI</li><li>Django</li><li>Node.js</li><li>MongoDB</li><li>Firebase</li><li>Docker</li><li>Git</li><li>Datadog</li><li>Grafana</li></ul>
         </div>
-        <div class="stack__row">
-          <h3>Frontend &amp; mobile</h3>
-          <ul class="pills"><li>React</li><li>Next.js</li><li>React Native</li></ul>
-        </div>
-        <div class="stack__row">
-          <h3>Databases</h3>
-          <ul class="pills"><li>PostgreSQL</li><li>MongoDB</li><li>Firebase</li></ul>
-        </div>
-        <div class="stack__row">
-          <h3>Cloud &amp; DevOps</h3>
-          <ul class="pills"><li>AWS Lambda</li><li>AWS SQS</li><li>Docker</li><li>Git</li></ul>
-        </div>
-        <div class="stack__row">
-          <h3>Monitoring</h3>
-          <ul class="pills"><li>Datadog</li><li>Grafana</li></ul>
-        </div>
-        <div class="stack__row">
-          <h3>How I build</h3>
-          <ul class="pills pills--soft"><li>Event-driven architecture</li><li>Serverless</li><li>Message queues</li><li>API design</li><li>Async programming</li><li>Microservices</li><li>TDD</li><li>Unit &amp; integration testing</li><li>Agile / Scrum</li></ul>
+        <div class="skills__group">
+          <h3>Ways of working</h3>
+          <ul class="pills pills--soft"><li>Serverless</li><li>Message queues</li><li>Microservices</li><li>Async programming</li><li>Code reviews</li><li>Agile / Scrum</li></ul>
         </div>
       </div>
     </section>
 
-    <!-- SIGNALS: certifications + education -->
-    <section class="section" id="signals">
+    <!-- 05 EDUCATION -->
+    <section class="section" id="education">
       <header class="section__head">
-        <p class="kicker">04 · Signals</p>
-        <h2>Certifications &amp; education</h2>
-        <p class="section__sub">Always adding to the position.</p>
+        <p class="kicker">04 · Education</p>
+        <h2>Education &amp; certifications</h2>
       </header>
-      <div class="signals">
-        <article class="signal">
-          <div class="signal__top"><span class="badge badge--buy">NEW · Sep 2026</span><span class="signal__org">Software Engineering Factory</span></div>
-          <h3>Applied AI Engineering Workshop</h3>
-          <p>Completed the applied AI engineering program, building production style AI features end to end: tool calling, retrieval (RAG), structured outputs, evaluations, and human approval gates.</p>
-        </article>
-        <article class="signal">
-          <div class="signal__top"><span class="badge">Mar 2026</span><span class="signal__org">Zapier Academy</span></div>
-          <h3>AI Builder Path</h3>
-          <p>Completed the AI Builder certification path: multi-step automations with AI steps, webhooks, scheduling, and Zapier Tables connecting business tools.</p>
-        </article>
-        <article class="signal">
-          <div class="signal__top"><span class="badge badge--gold">★ Star Developer</span><span class="signal__org">Software Engineering Factory</span></div>
-          <h3>Full Stack Software Engineering Bootcamp</h3>
-          <p>Nov 2022 to May 2023. Graduated as a Star Developer, shipping a full-stack web app.</p>
-        </article>
-        <article class="signal">
-          <div class="signal__top"><span class="badge">2018 to 2021</span><span class="signal__org">American University of Beirut</span></div>
-          <h3>Psychology</h3>
-          <p>Sep 2018 to Jun 2021.</p>
-        </article>
-      </div>
+      <ul class="edu">
+        <li class="edu__row">
+          <span class="edu__when">Sep 2026</span>
+          <span class="edu__what"><b>Applied AI Engineering Workshop</b> · Software Engineering Factory</span>
+          <span class="edu__note">Tool calling, RAG, structured outputs, evaluations, human approval gates</span>
+        </li>
+        <li class="edu__row">
+          <span class="edu__when">Mar 2026</span>
+          <span class="edu__what"><b>AI Builder Path</b> · Zapier Academy</span>
+          <span class="edu__note">Multi-step automations with AI steps, webhooks and scheduling</span>
+        </li>
+        <li class="edu__row">
+          <span class="edu__when">2022 to 2023</span>
+          <span class="edu__what"><b>Full Stack Software Engineering Bootcamp</b> · Software Engineering Factory</span>
+          <span class="edu__note"><span class="gold">★ Star Developer</span></span>
+        </li>
+        <li class="edu__row">
+          <span class="edu__when">2018 to 2021</span>
+          <span class="edu__what"><b>Psychology</b> · American University of Beirut</span>
+          <span class="edu__note"></span>
+        </li>
+      </ul>
     </section>
 
-    <!-- CONTACT -->
+    <!-- 06 CONTACT -->
     <section class="section contact" id="contact">
       <div class="contact__card">
         <p class="kicker">05 · Contact</p>
         <h2>Let's talk</h2>
-        <p class="section__sub">Open to remote backend, software and full-stack roles. Based in Beirut, Lebanon (UTC+2/+3).</p>
+        <p class="section__sub">I'm looking for remote backend, Python or full-stack engineering roles, as a contractor, through an employer of record, or as a direct hire. Based in Beirut, Lebanon (UTC+2/+3).</p>
         <div class="order">
           <a class="order__row" href="mailto:shoumar.mohamad1@gmail.com"><span class="order__k">EMAIL</span><span class="order__v">shoumar.mohamad1@gmail.com</span><span class="order__go">→</span></a>
           <a class="order__row" href="https://www.linkedin.com/in/mohamad-shoumar/" target="_blank" rel="noopener"><span class="order__k">LINKEDIN</span><span class="order__v">in/mohamad-shoumar</span><span class="order__go">↗</span></a>
           <a class="order__row" href="https://github.com/mohamad-shoumar" target="_blank" rel="noopener"><span class="order__k">GITHUB</span><span class="order__v">mohamad-shoumar</span><span class="order__go">↗</span></a>
         </div>
-        <a class="btn btn--buy btn--big" href="mailto:shoumar.mohamad1@gmail.com?subject=Let's%20talk">Email me</a>
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="mailto:shoumar.mohamad1@gmail.com?subject=Let's%20talk">Email me</a>
+          <a class="btn btn--ghost" href="Mohamad_Shoumar_Resume.pdf" download>Download résumé</a>
+        </div>
       </div>
     </section>
   </main>
 
   <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
